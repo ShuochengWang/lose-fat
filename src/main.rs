@@ -35,9 +35,18 @@ fn App() -> impl IntoView {
             "Move when coordinates change"
         </div>
 
-        <progress max="50" value=double_count></progress>
+        <ProgressBar progress=count/>
+        <ProgressBar progress=double_count/>
         <p>"Double count: " {double_count}</p>
     }
+}
+
+#[component]
+fn ProgressBar<F: Fn() -> i32 + 'static>(
+    #[prop(default = 100)]
+    max: u16, 
+    progress: F) -> impl IntoView {
+    view! { <progress max=max value=progress></progress> }
 }
 
 fn main() {
