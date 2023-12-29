@@ -5,7 +5,6 @@ pub struct Store {
     name: String,
 }
 
-
 impl Store {
     pub fn new(name: &str) -> Option<Store> {
         let window = web_sys::window()?;
